@@ -1,0 +1,25 @@
+Bienvenue dans ce deuxième projet dans lequel on va coder le jeu du Tic-Tac-Toe (morpion, OXO) !
+
+But du jeu :
+
+    Deux joueurs posent tout à tour : une croix pour l’un, un cercle pour l’autre, dans une grille 3x3.
+
+    Si une case est occupée, alors le joueur doit en choisir une vide.
+
+    Pour gagner, il faut obtenir un alignement (en ligne, colonne ou diagonale) de trois signes identiques.
+
+    Si toute la grille est remplie et qu’aucun alignement n’est visible, alors il y a match nul.
+
+L’objectif de ce projet est de s’entraîner à architecturer un programme en utilisant un maximum les notions de : classes, espaces de noms et modules (ou .h/.cpp, au choix).
+
+Avant de vous lancer, il y a une règle que vous devez retenir : « Make it work, make it right, make it fast ». Il existe des centaines de différentes approches pouvant mener au même résultat, le plus important est de pouvoir justifier celle qu’on choisit d’utiliser. Essayez de réfléchir en amont à l’organisation de vos classes et de leurs relations, et surtout faites simple !
+
+Vous pouvez par exemple rédiger un diagramme de classes afin de vous rendre compte en amont de tous les problèmes que vous n’aviez pas pris en compte au premier abord.
+
+Bon courage !
+Questions pour cet exercice
+
+Programmer le jeu du Tic-Tac-Toe en C++ Moderne.
+
+Lire le pdf
+Télécharger les fichiers de ressource
