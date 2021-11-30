@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 
+#include "cell.h"
 #include "board.h" 
 
 using namespace std;
@@ -59,6 +60,11 @@ void Board::FillCross(CellPos cellPos){
 }
 
 int Board::CheckMatchStatus(void){
+    //trouver une cellule avec un symbole a l'interieur
+    //chercher les cellules voisines avec le meme symbole
+    //regarder si la nouvelle cellules est alligné avec celle qu'on a trouvé
+    //precedament
+    //regarder si on a atteint la longueur de ligne voulu => retourner vrai
 }
 
 void Board::DisplayBoard(void){

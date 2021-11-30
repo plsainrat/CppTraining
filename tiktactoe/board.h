@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <array>
+#include <vector>
 
 #define CODE_FAILURE 0
 #define CODE_SUCESS 1
@@ -12,9 +13,14 @@
 #define GAME_STATUS_VICTORY 1
 #define GAME_STATUS_DRAW 2
 
-struct CellPos{
-    int x;
-    int y;
+class CellPos{
+    private:
+    public:
+        int x;
+        int y;
+        CellPos operator-(const CellPos& obj);
+        bool operator==(const CellPos& obj);
+        bool isAlign(std::vector<CellPos> cellVect);
 };
 
 //template <int ARRAY_LEN> 
