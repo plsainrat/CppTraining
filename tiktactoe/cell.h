@@ -5,6 +5,8 @@
 #include <string>
 #include <array>
 #include <vector>
+#include <cmath>
+#include <algorithm>
 
 
 
@@ -13,8 +15,18 @@ class CellPos{
     public:
         int x;
         int y;
+
         CellPos operator-(const CellPos& obj);
+        CellPos operator+(const CellPos& obj);
+        bool operator<(const CellPos& obj);
+        bool operator>=(const CellPos& obj);
         bool operator==(const CellPos& obj);
-        bool isAlign(std::vector<CellPos> cellVect);
+        bool operator!=(const CellPos& obj);
+        int CellDist(const CellPos& cellB) const;
+
+        friend std::ostream& operator<<(std::ostream& os, const CellPos& cellPos);
 };
+
+bool isAlign(std::vector<CellPos> cellVect, CellPos cellA);
+
 #endif//__CLASS_CELL__

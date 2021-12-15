@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-#include <vector>
-
-#include "cell.h"
 #include "board.h" 
 
 using namespace std;
@@ -57,6 +52,26 @@ void Board::FillCircle(CellPos cellPos){
 
 void Board::FillCross(CellPos cellPos){
     FillCell(cellPos, 'X');
+}
+
+void Board::FindNeighbour(CellPos cellPos, std::vector<CellPos>& cellVect){
+    CellPos currCell = cellPos;
+    CellPos nextCell;
+
+   for(int i=-1; i<=1; i++){
+       for(int j=-1; j<=1; j++){
+           nextCell = currCell + CellPos{i,j}; 
+           if(this->GetCellContent(currCell)==this->GetCellContent(nextCell) &&
+              nextCell != currCell                                           &&
+              nextCell.x >= 0 && nextCell.y >= 0)
+           {
+               cellVect.push_back(nextCell);
+           }
+       }
+    } 
+}
+
+void  Board::FindLine(std::vector<CellPos> cellVect, int length){
 }
 
 int Board::CheckMatchStatus(void){
