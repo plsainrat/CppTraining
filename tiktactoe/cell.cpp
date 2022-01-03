@@ -11,13 +11,39 @@ CellPos CellPos::operator+(const CellPos& obj){
 }
 
 bool CellPos::operator<(const CellPos& obj){
-    CellPos const cellZero{1,1};
-   return (*this).CellDist(cellZero) < obj.CellDist(cellZero);
+    if(y==obj.y){
+           return x < obj.x;
+        }
+    else{
+        return y < obj.y;
+    }
+}
+
+bool CellPos::operator>(const CellPos& obj){
+    if(y==obj.y){
+           return x > obj.x;
+        }
+    else{
+        return y > obj.y;
+    }
+}
+
+bool CellPos::operator<=(const CellPos& obj){
+    if(y==obj.y){
+           return x <= obj.x;
+        }
+    else{
+        return y <= obj.y;
+    }
 }
 
 bool CellPos::operator>=(const CellPos& obj){
-    CellPos const cellZero{1,1};
-   return (*this).CellDist(cellZero) >= obj.CellDist(cellZero);
+    if(y==obj.y){
+           return x >= obj.x;
+        }
+    else{
+        return y >= obj.y;
+    }
 }
 
 bool CellPos::operator==(const CellPos& obj){

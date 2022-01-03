@@ -3,12 +3,12 @@
 using namespace std;
 
 Board::Board(int x, int y):
-sizeX(x), sizeY(y){
+sizeX(x), sizeY(y), lineLength(4){
     this->InitializeBoard();
 }
 
 Board::Board():
-sizeX(3), sizeY(3){
+sizeX(3), sizeY(3), lineLength(3){
     this->InitializeBoard();
 }
 
@@ -27,7 +27,9 @@ void Board::InitializeBoard(){
 }
 
 char Board::GetCellContent(CellPos cellPos){
-    return *((this->boardArray)+(cellPos.x + cellPos.y*this->sizeX));
+    if(cellPos.x < this->sizeX && cellPos.y < this->sizeY) {
+        return *((this->boardArray)+(cellPos.x + cellPos.y*this->sizeX));
+    }
 }
 
 bool Board::IsCellAvailable(CellPos cellPos){
@@ -58,28 +60,51 @@ void Board::FindNeighbour(CellPos cellPos, std::vector<CellPos>& cellVect){
     CellPos currCell = cellPos;
     CellPos nextCell;
 
-   for(int i=-1; i<=1; i++){
-       for(int j=-1; j<=1; j++){
+   for(int i=-1; i<=1; ++i){
+       for(int j=-1; j<=1; ++j){
            nextCell = currCell + CellPos{i,j}; 
-           if(this->GetCellContent(currCell)==this->GetCellContent(nextCell) &&
-              nextCell != currCell                                           &&
-              nextCell.x >= 0 && nextCell.y >= 0)
-           {
+           if(this->GetCellContent(currCell)==this->GetCellContent(nextCell) 
+            && nextCell != currCell                                           
+            && nextCell.x >= 0 && nextCell.y >= 0){
                cellVect.push_back(nextCell);
            }
        }
     } 
 }
 
-void  Board::FindLine(std::vector<CellPos> cellVect, int length){
+bool Board::FindLine(CellPos cellPos, CellPos dir, int length){
+     if(length ==0) return true;    
+     CellPos nextCell{}; 
+     nextCell = cellPos + dir;
+     if(nextCell<=CellPos{0,0}||nextCell>=CellPos{this->sizeX,this->sizeY}) return false;
+     if(this->GetCellContent(nextCell) == this->GetCellContent(cellPos))
+     {
+        return this->FindLine(CellPos{nextCell}, dir, length - 1);
+     }
+     else
+     {
+         return false;
+     }
 }
 
 int Board::CheckMatchStatus(void){
-    //trouver une cellule avec un symbole a l'interieur
-    //chercher les cellules voisines avec le meme symbole
-    //regarder si la nouvelle cellules est alligné avec celle qu'on a trouvé
-    //precedament
-    //regarder si on a atteint la longueur de ligne voulu => retourner vrai
+    for(int i = 0 ; i < this->sizeY; ++i){
+        for(int j = 0; j < this->sizeX; ++j){
+            CellPos cellPos = CellPos{i,j}; 
+            if(!this->IsCellAvailable(cellPos)){
+                std::vector<CellPos> cellVect;
+                this->FindNeighbour(cellPos, cellVect);
+                for(std::vector<CellPos>::iterator it = cellVect.begin(); it!=cellVect.end(); ++it){
+                    if(this->FindLine(cellPos, *it - cellPos, (this->lineLength)-1)){
+                        if(this->GetCellContent(cellPos)=='X') return 1;
+                        else if(this->GetCellContent(cellPos)=='O') return -1;
+                    }
+                }
+                std::cout << '\n';
+            }
+        }
+    }
+    return 0;
 }
 
 void Board::DisplayBoard(void){

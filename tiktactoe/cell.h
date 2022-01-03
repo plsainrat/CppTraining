@@ -19,11 +19,12 @@ class CellPos{
         CellPos operator-(const CellPos& obj);
         CellPos operator+(const CellPos& obj);
         bool operator<(const CellPos& obj);
+        bool operator>(const CellPos& obj);
         bool operator>=(const CellPos& obj);
+        bool operator<=(const CellPos& obj);
         bool operator==(const CellPos& obj);
         bool operator!=(const CellPos& obj);
         int CellDist(const CellPos& cellB) const;
-
         friend std::ostream& operator<<(std::ostream& os, const CellPos& cellPos);
 };
 
