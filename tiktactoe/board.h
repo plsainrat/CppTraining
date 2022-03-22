@@ -39,11 +39,6 @@ class Board{
        bool IsCellAvailable(CellPos cellPos);
        //Functions to manipulate the board
        void InitializeBoard();
-       //Game status related functions
-       void FindNeighbour(CellPos cellPos, std::vector<CellPos>& cellVect);
-       //void FindLine(std::vector<CellPos> cellVect, int length);
-       bool FindLine(CellPos cellPos, CellPos dir, int length);
-       int CheckMatchStatus(void);
        //Print functions, display the owl board, or just the infos
        void DisplayBoard(void);
        void PrintLine(void);

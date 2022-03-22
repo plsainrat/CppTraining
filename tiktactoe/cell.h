@@ -28,6 +28,5 @@ class CellPos{
         friend std::ostream& operator<<(std::ostream& os, const CellPos& cellPos);
 };
 
-bool isAlign(std::vector<CellPos> cellVect, CellPos cellA);
 
 #endif//__CLASS_CELL__
