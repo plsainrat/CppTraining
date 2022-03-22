@@ -4,7 +4,6 @@
 class GameManager{
 private:
 public:
-
 };
 
 #endif//__CLASS_GAME_MANAGER___
