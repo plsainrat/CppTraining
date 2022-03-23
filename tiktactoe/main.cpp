@@ -5,8 +5,10 @@
 #include "board.h"
 #include "cell.h" 
 #include "gameManager.h" 
+#include "concreteGameState.h"
 
 
 int main(int argc, char *argv[]){
-    Board board1{4,4};
+    GameManager gameManager;
+
 }

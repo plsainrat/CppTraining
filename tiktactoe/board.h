@@ -25,6 +25,8 @@ class Board{
         //array<char, ARRAY_LEN> boardArray; 
         char* boardArray;
         int lineLength;
+        Board& operator=(const Board& other);
+
     public:
         //Constructors Destructor
        Board(int x, int y); 
