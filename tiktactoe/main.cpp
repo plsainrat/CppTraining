@@ -9,6 +9,8 @@
 
 
 int main(int argc, char *argv[]){
-    GameManager gameManager;
-
+    GameManager gamemanager;
+    while(1){
+        gamemanager.ProcessState();
+    }
 }

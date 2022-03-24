@@ -30,14 +30,16 @@ class Board{
     public:
         //Constructors Destructor
        Board(int x, int y); 
+       Board(int x, int y, int z); 
        Board();
        ~Board();
        //Cells manipulation || a voir si on fait pas des fonction dans la class
        //Cell pour ajouter encore une couche de protection
        char GetCellContent(CellPos cellPos);
+       char GetCellContent(int x, int y);
        int FillCell(CellPos cellPos, char charFill);
-       void FillCross(CellPos cellPos);
-       void FillCircle(CellPos cellPos);
+       int FillCross(CellPos cellPos);
+       int FillCircle(CellPos cellPos);
        bool IsCellAvailable(CellPos cellPos);
        //Functions to manipulate the board
        void InitializeBoard();
@@ -45,6 +47,7 @@ class Board{
        void DisplayBoard(void);
        void PrintLine(void);
        void PrintBoardInfo(void);
+       bool CheckVictory();
 };
 
 #endif /* __CLASS_BOARD__ */

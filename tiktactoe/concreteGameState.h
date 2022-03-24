@@ -1,7 +1,8 @@
 #ifndef __CLASS__CONRETE_GAME_STATE__
 #define __CLASS__CONRETE_GAME_STATE__
-
+#include <iostream>
 #include "gameManager.h"
+#include "cell.h"
 
 class GameManager;
 
@@ -54,7 +55,7 @@ class Victory : public GameState{
     public:
         void enter(GameManager* gamemanager){}
         void process(GameManager* gamemanager);
-        void exit(GameManager* gamemanager){}
+        void exit(GameManager* gamemanager);
         static GameState& getInstance();
 
     private:

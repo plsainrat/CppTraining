@@ -15,10 +15,15 @@ class GameManager{
         //TODO : Il fut faire une fonction qui va invoquer les fonction de transistion
         //de l'etat courant
         void setState(GameState& newState);
+        void ProcessState();
 
         GameState* getCurrentGameState() const { return currGameState;}
 
         Board* getBoard() const { return board;}
+
+        void InitBoard(int boardSize);
+        void InitBoard();
+        void FreeBoard();
         
     private:
         GameState* currGameState;
